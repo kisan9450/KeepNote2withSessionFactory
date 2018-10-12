@@ -2,11 +2,9 @@ package com.stackroute.keepnote.dao;
 
 import java.util.List;
 
-import javax.persistence.Query;
+import javax.persistence.*;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,9 +26,8 @@ public class NoteDAOImpl implements NoteDAO {
 	/*
 	 * Autowiring should be implemented for the SessionFactory.
 	 */
-
-	@Autowired
-	SessionFactory sessionFactory;
+	@PersistenceContext
+	EntityManager entityManager;
 
 	public NoteDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
