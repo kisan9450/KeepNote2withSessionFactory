@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,8 +27,7 @@ public class NoteDAOImpl implements NoteDAO {
 	/*
 	 * Autowiring should be implemented for the SessionFactory.
 	 */
-	@PersistenceContext
-	EntityManager entityManager;
+	SessionFactory sessionFactory;
 
 	public NoteDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
